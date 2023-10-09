@@ -46,7 +46,7 @@ DATABASE_PORT=5432
 
 `python3 manage.py runserver`
 
-# Create the User, Card and Transaction objects using this command
+## Create the User, Card and Transaction objects using this command
 
 `python3 manage.py fill_data`
 
@@ -56,3 +56,9 @@ DATABASE_PORT=5432
 
 `http://localhost:8000/redoc/`
 `http://localhost:8000/swagger/`
+
+# Run with Docker
+
+## on the main folder of project run this command
+
+`docker-compose up -d --build`

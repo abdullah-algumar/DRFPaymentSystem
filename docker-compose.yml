@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+  db:
+    env_file:
+      - .env
+    container_name: drf_payment_db
+    image: postgres
+    volumes:
+      - /home/drf_payment_db:/var/lib/postgresql/data:rw
+  web:
+    build: .
+    image: django
+    container_name: drf_payment_web
+    env_file:
+      - .env
+    volumes:
+      - /home/drf_payment_web:/home/abdullah
+    depends_on:
+      - db
+    ports:
+      - "8866:8866"
+  redis:
+    image: redis:alpine
+    ports:
+      - "7055:6379"
+    container_name: redis
+    restart: unless-stopped
